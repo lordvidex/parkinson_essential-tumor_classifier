@@ -34,7 +34,7 @@ def merge_metadata(metadata_dir: str, output_file: str = "metadata.csv"):
     # Find all metadata-*.csv files
     metadata_files = list(metadata_dir.glob("metadata*.csv"))
     if not metadata_files:
-        print(f"No metadata-*.csv files found in {metadata_dir}")
+        print(f"No metadata*.csv files found in {metadata_dir}")
         return
     
     # Read and merge all files
@@ -50,11 +50,6 @@ def merge_metadata(metadata_dir: str, output_file: str = "metadata.csv"):
     # Write to output file
     merged_df.to_csv(output_path, index=False)
     print(f"Merged {len(metadata_files)} files into {output_path}")
-    
-    # Delete individual metadata files (but not the output file)
-    for file in metadata_files:
-        os.remove(file)
-    print(f"Deleted individual metadata files.")
 
 
 if __name__ == "__main__":
@@ -64,3 +59,4 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     merge_metadata(args.metadata_dir, args.output)
+    delete_already_merged(args.metadata_dir)
