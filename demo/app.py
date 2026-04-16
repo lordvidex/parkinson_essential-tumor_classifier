@@ -192,7 +192,7 @@ with st.sidebar:
 
     model_path = st.text_input(
         "Model checkpoint (.pth)",
-        value="monai_efficientnet_b0_final.pth",
+        value="models/monai_efficientnet_b0_final.pth",
         help="Path to the saved MONAI checkpoint"
     )
 
