@@ -1,0 +1,25 @@
+# ─── Web framework ────────────────────────────────────────────────────────────
+streamlit>=1.35.0
+
+# ─── Deep learning ────────────────────────────────────────────────────────────
+# CPU-only build keeps the Streamlit Cloud slug well under 4 GB.
+# If you are deploying to a GPU machine, replace the two lines below with:
+#   torch>=2.1.0
+#   torchvision>=0.16.0
+torch>=2.1.0          --index-url https://download.pytorch.org/whl/cpu
+torchvision>=0.16.0   --index-url https://download.pytorch.org/whl/cpu
+
+# ─── Vision / image processing ────────────────────────────────────────────────
+Pillow>=10.0.0
+opencv-python-headless>=4.8.0   # headless: no Qt/GUI deps — required for servers
+
+# ─── Numerical / scientific ───────────────────────────────────────────────────
+numpy>=1.24.0
+scipy>=1.11.0
+
+# ─── Plotting ─────────────────────────────────────────────────────────────────
+matplotlib>=3.7.0
+
+# ─── HTTP (model downloader) ──────────────────────────────────────────────────
+requests>=2.31.0
+gdown
